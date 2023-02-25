@@ -51,7 +51,7 @@ namespace EventReview.Shared.Services
 
         public async Task DeleteAsync(string id)
         {
-            await _container.DeleteItemAsync<T>(id, new PartitionKey(id));
+            await _container.DeleteItemAsync<T>(id, PartitionKey.None);
         }
     }
 
