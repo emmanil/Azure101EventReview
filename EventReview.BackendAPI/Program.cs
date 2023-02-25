@@ -1,10 +1,6 @@
 using EventReview.Shared.Models;
 using EventReview.Shared.Services;
 using Microsoft.Azure.Cosmos;
-using Microsoft.Extensions.DependencyInjection;
-using System.ComponentModel;
-using System.Configuration;
-using System.Xml;
 
 namespace EventReview.BackendAPI
 {
@@ -15,10 +11,10 @@ namespace EventReview.BackendAPI
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
-            builder.Services.AddSingleton<IRepository<Event>>(provider => 
+            builder.Services.AddSingleton<IRepository<Event>>(provider =>
             {
-                string endpointUri = "<ENDPOINT-URI>";
-                string primaryKey = "<PRIMARY-KEY>";
+                string endpointUri = "https://cosff33f9393.documents.azure.com:443/";
+                string primaryKey = "KzEqHqR3qlpKbcpqv7fCHcLrqBYLhfyh4N7SMVq9GR2YHwJoE5lfADbrRfXaRVuL00L9QbF4PriVACDbOuDp3w==";
                 var client = new CosmosClient(endpointUri, primaryKey);
 
                 var databaseName = "reviewDB";
